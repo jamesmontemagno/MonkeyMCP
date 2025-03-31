@@ -1,4 +1,4 @@
-# Model Context Protocol (MCP) Server Test Application
+# Monkey - Model Context Protocol (MCP) Server
 
 ## Overview
 This is a Model Context Protocol (MCP) server implementation built with .NET 9.0. The MCP server provides a communication protocol for facilitating interactions between various components in a model-driven system. This implementation demonstrates how to set up a basic MCP server with custom tools and services.
