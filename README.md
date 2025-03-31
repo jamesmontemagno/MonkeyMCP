@@ -69,7 +69,7 @@ public static class CustomTool
 ```
 
 ## Project Structure
-- **/MyMCPTest**: Main project directory
+- **/MonkeyMCP**: Main project directory
   - **MonkeyService.cs**: Implementation of the service to fetch monkey data
   - **MonkeyTools.cs**: MCP tools for accessing monkey data
   - **Program.cs**: Entry point that configures and starts the MCP server

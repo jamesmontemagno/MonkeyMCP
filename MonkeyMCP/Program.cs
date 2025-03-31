@@ -2,7 +2,7 @@
 using ModelContextProtocol.Server;
 using Microsoft.Extensions.Hosting;
 using System.ComponentModel;
-using MyMCPTest;
+using MonkeyMCP;
 using Microsoft.Extensions.DependencyInjection;
 
 var builder = Host.CreateEmptyApplicationBuilder(settings: null);

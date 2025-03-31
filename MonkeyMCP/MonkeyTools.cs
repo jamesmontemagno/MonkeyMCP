@@ -3,7 +3,7 @@ using System.ComponentModel;
 using System.Text.Json;
 using ModelContextProtocol.Server;
 
-namespace MyMCPTest;
+namespace MonkeyMCP;
 
 [McpServerToolType]
 public static class MonkeyTools
