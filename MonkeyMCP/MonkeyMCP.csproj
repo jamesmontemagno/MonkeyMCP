@@ -10,8 +10,8 @@
   <PropertyGroup>
     <EnableSdkContainerSupport>true</EnableSdkContainerSupport>
     <ContainerRepository>jamesmontemagno/monkeymcp</ContainerRepository>
-    <ContainerBaseImage>mcr.microsoft.com/dotnet/runtime:9.0-alpine</ContainerBaseImage>
-    <RuntimeIdentifier>linux-x64</RuntimeIdentifier>
+    <ContainerFamily>alpine</ContainerFamily>
+    <RuntimeIdentifiers>linux-x64;linux-arm64</RuntimeIdentifiers>
   </PropertyGroup>
   
 
