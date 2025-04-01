@@ -3,6 +3,28 @@
 ## Overview
 This is a Model Context Protocol (MCP) server implementation built with .NET 9.0. The MCP server provides a communication protocol for facilitating interactions between various components in a model-driven system. This implementation demonstrates how to set up a basic MCP server with custom tools and services.
 
+## Try it
+
+Configure in VS Code with GitHub Copilot, Claude Desktop, or other MCP clients:
+
+```json
+{
+    "inputs": [],
+    "servers": {
+        "monkeymcp": {
+            "command": "docker",
+            "args": [
+                "run",
+                "-i",
+                "--rm",
+                "jamesmontemagno/monkeymcp"
+            ],
+            "env": {}
+        }
+    }
+}
+```
+
 ## Features
 
 ### Core Components
