@@ -50,7 +50,21 @@ Several logging providers are available:
 1. Clone this repository
 2. Navigate to the project directory
 3. Build the project: `dotnet build`
-4. Run the server: `dotnet run`
+4. Configure with VS Code or other client:
+
+```json
+"monkeyserver": {
+    "type": "stdio",
+    "command": "dotnet",
+    "args": [
+        "run",
+        "--project",
+        "/Users/jamesmontemagno/GitHub/TestMCP/MonkeyMCP/MonkeyMCP.csproj"
+    ]
+}
+```
+
+> Update the path to the project
 
 ### Extending the Server
 To add custom tools:
