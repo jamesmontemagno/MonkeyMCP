@@ -5,6 +5,7 @@ builder.Services
     .AddMcpServer()
     .WithTools<MonkeyTools>();
 
+builder.Services.AddHttpClient();
 builder.Services.AddSingleton<MonkeyService>();
 
 var app = builder.Build();

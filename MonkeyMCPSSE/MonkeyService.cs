@@ -1,14 +1,13 @@
 using System.Text.Json.Serialization;
 
-
 namespace MonkeyMCPSSE;
 
 public class MonkeyService
 {
-    HttpClient httpClient;
-    public MonkeyService()
+    private readonly HttpClient httpClient;
+    public MonkeyService(IHttpClientFactory httpClientFactory)
     {
-        this.httpClient = new HttpClient();  
+        httpClient = httpClientFactory.CreateClient();
     }
 
     List<Monkey> monkeyList = new();
@@ -35,8 +34,6 @@ public class MonkeyService
         return monkeys.FirstOrDefault(m => m.Name?.Equals(name, StringComparison.OrdinalIgnoreCase) == true);
     }
 }
-
-
 
 public partial class Monkey
 {

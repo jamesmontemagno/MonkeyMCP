@@ -1,7 +1,4 @@
-﻿using ModelContextProtocol;
-using ModelContextProtocol.Server;
-using Microsoft.Extensions.Hosting;
-using System.ComponentModel;
+﻿using Microsoft.Extensions.Hosting;
 using MonkeyMCP;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -11,6 +8,7 @@ builder.Services
     .WithStdioServerTransport()
     .WithToolsFromAssembly();
 
+builder.Services.AddHttpClient();
 builder.Services.AddSingleton<MonkeyService>();
 
 await builder.Build().RunAsync();

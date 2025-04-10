@@ -1,16 +1,14 @@
 using System.Net.Http.Json;
-using System.Text.Json;
 using System.Text.Json.Serialization;
-
 
 namespace MonkeyMCP;
 
 public class MonkeyService
 {
-    HttpClient httpClient;
-    public MonkeyService()
+    private readonly HttpClient httpClient;
+    public MonkeyService(IHttpClientFactory httpClientFactory)
     {
-        this.httpClient = new HttpClient();  
+        httpClient = httpClientFactory.CreateClient();
     }
 
     List<Monkey> monkeyList = new();
@@ -37,8 +35,6 @@ public class MonkeyService
         return monkeys.FirstOrDefault(m => m.Name?.Equals(name, StringComparison.OrdinalIgnoreCase) == true);
     }
 }
-
-
 
 public partial class Monkey
 {
