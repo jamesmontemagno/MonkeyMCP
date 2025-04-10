@@ -109,6 +109,8 @@ public static class CustomTool
 ### Overview
 The `MonkeyMCPSSE` project provides an alternative implementation of the Monkey MCP server using Server-Sent Events (SSE) over HTTP instead of stdio transport. This implementation runs as a web server, making it ideal for web-based clients and scenarios requiring HTTP-based communication.
 
+> Read more about [SSE best practices for security here](https://modelcontextprotocol.io/docs/concepts/transports#security-warning%3A-dns-rebinding-attacks)
+
 ### Features
 - **HTTP-based Transport**: Runs on `http://localhost:3001` by default
 - **Server-Sent Events**: Enables real-time, one-way communication from server to client
