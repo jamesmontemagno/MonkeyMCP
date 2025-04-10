@@ -5,17 +5,24 @@ using ModelContextProtocol.Server;
 namespace MonkeyMCP;
 
 [McpServerToolType]
-public static class MonkeyTools
+public sealed class MonkeyTools
 {
+    private readonly MonkeyService monkeyService;
+
+    public MonkeyTools(MonkeyService monkeyService)
+    {
+        this.monkeyService = monkeyService;
+    }
+
     [McpServerTool, Description("Get a list of monkeys.")]
-    public static async Task<string> GetMonkeys(MonkeyService monkeyService)
+    public async Task<string> GetMonkeys()
     {
         var monkeys = await monkeyService.GetMonkeys();
         return JsonSerializer.Serialize(monkeys);
     }
 
     [McpServerTool, Description("Get a monkey by name.")]
-    public static async Task<string> GetMonkey(MonkeyService monkeyService, [Description("The name of the monkey to get details for")] string name)
+    public async Task<string> GetMonkey([Description("The name of the monkey to get details for")] string name)
     {
         var monkey = await monkeyService.GetMonkey(name);
         return JsonSerializer.Serialize(monkey);
