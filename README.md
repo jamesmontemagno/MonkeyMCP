@@ -104,6 +104,27 @@ public static class CustomTool
 }
 ```
 
+## Server-Sent Events Implementation (MonkeyMCPSSE)
+
+### Overview
+The `MonkeyMCPSSE` project provides an alternative implementation of the Monkey MCP server using Server-Sent Events (SSE) over HTTP instead of stdio transport. This implementation runs as a web server, making it ideal for web-based clients and scenarios requiring HTTP-based communication.
+
+> Read more about [SSE best practices for security here](https://modelcontextprotocol.io/docs/concepts/transports#security-warning%3A-dns-rebinding-attacks)
+
+### Features
+- **HTTP-based Transport**: Runs on `http://localhost:3001` by default
+- **Server-Sent Events**: Enables real-time, one-way communication from server to client
+- **ASP.NET Core Integration**: Built using ASP.NET Core's web server capabilities
+- **MCP over HTTP**: Implements the Model Context Protocol over HTTP transport
+
+### Running the SSE Server
+1. Navigate to the MonkeyMCPSSE directory
+2. Build and run the project:
+3. Connect and run in VS Code or using MCP Inspector `npx @modelcontextprotocol/inspector`
+
+### Implementation Details
+The SSE implementation uses ASP.NET Core's built-in web server capabilities while maintaining the same monkey data service and tools as the stdio version. This makes it easy to switch between transport methods while keeping the core functionality intact.
+
 ## Project Structure
 - **/MonkeyMCP**: Main project directory
   - **MonkeyService.cs**: Implementation of the service to fetch monkey data
