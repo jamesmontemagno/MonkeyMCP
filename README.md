@@ -118,7 +118,7 @@ The `MonkeyMCPSSE` project provides an alternative implementation of the Monkey 
 ### Running the SSE Server
 1. Navigate to the MonkeyMCPSSE directory
 2. Build and run the project:
-3. Connect and run in VS Code or using MCP Inspecto `npx @modelcontextprotocol/inspector`
+3. Connect and run in VS Code or using MCP Inspector `npx @modelcontextprotocol/inspector`
 
 ### Implementation Details
 The SSE implementation uses ASP.NET Core's built-in web server capabilities while maintaining the same monkey data service and tools as the stdio version. This makes it easy to switch between transport methods while keeping the core functionality intact.
