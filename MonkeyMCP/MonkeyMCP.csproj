@@ -16,10 +16,10 @@
   
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.Extensions.Hosting" Version="9.0.4" />
-    <PackageReference Include="Microsoft.Extensions.Http" Version="9.0.4" />
-    <PackageReference Include="ModelContextProtocol" Version="0.1.0-preview.7" />
-    <PackageReference Include="System.Text.Json" Version="9.0.4" />
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="9.0.5" />
+    <PackageReference Include="Microsoft.Extensions.Http" Version="9.0.5" />
+    <PackageReference Include="ModelContextProtocol" Version="0.1.0-preview.14" />
+    <PackageReference Include="System.Text.Json" Version="9.0.5" />
   </ItemGroup>
 
 </Project>
