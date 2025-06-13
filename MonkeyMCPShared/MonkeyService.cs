@@ -48,6 +48,7 @@ public partial class Monkey
 }
 
 [JsonSerializable(typeof(List<Monkey>))]
+[JsonSerializable(typeof(Monkey))]
 internal sealed partial class MonkeyContext : JsonSerializerContext {
 
 }

@@ -16,24 +16,10 @@ public class MonkeyResources
     }
 
 
-    [McpServerResource, Description("Baboon")]
-    public async Task<string> Baboon()
+    [McpServerResource, Description("Get monkey details by name")]
+    public async Task<string> Monkey(string name)
     {
-        var monkey = await monkeyService.GetMonkey("Baboon") ?? throw new Exception("Baboon not found");
-        return JsonSerializer.Serialize(monkey);
-    }
-
-    [McpServerResource, Description("Capuchin")]
-    public async Task<string> Capuchin()
-    {
-        var monkey = await monkeyService.GetMonkey("Capuchin Monkey") ?? throw new Exception("Capuchin not found");
-        return JsonSerializer.Serialize(monkey);
-    }
-
-    [McpServerResource, Description("Red-shanked douc")]
-    public async Task<string> RedShankedDouc()
-    {
-        var monkey = await monkeyService.GetMonkey("Red-shanked Douc") ?? throw new Exception("Red-shanked Douc not found");
-        return JsonSerializer.Serialize(monkey);
+        var monkey = await monkeyService.GetMonkey(name) ?? throw new Exception($"{name} not found");
+        return JsonSerializer.Serialize(monkey, MonkeyContext.Default.Monkey);
     }
 }

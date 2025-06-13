@@ -18,13 +18,13 @@ public sealed class MonkeyTools
     public async Task<string> GetMonkeys()
     {
         var monkeys = await monkeyService.GetMonkeys();
-        return JsonSerializer.Serialize(monkeys);
+        return JsonSerializer.Serialize(monkeys, MonkeyContext.Default.ListMonkey);
     }
 
     [McpServerTool, Description("Get a monkey by name.")]
     public async Task<string> GetMonkey([Description("The name of the monkey to get details for")] string name)
     {
         var monkey = await monkeyService.GetMonkey(name);
-        return JsonSerializer.Serialize(monkey);
+        return JsonSerializer.Serialize(monkey, MonkeyContext.Default.Monkey);
     }
 }
