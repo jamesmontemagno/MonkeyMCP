@@ -1,7 +1,7 @@
 using System.Net.Http.Json;
 using System.Text.Json.Serialization;
 
-namespace MonkeyMCP;
+namespace MonkeyMCPShared;
 
 public class MonkeyService
 {

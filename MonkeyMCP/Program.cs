@@ -1,5 +1,5 @@
 ﻿using Microsoft.Extensions.Hosting;
-using MonkeyMCP;
+using MonkeyMCPShared;
 using Microsoft.Extensions.DependencyInjection;
 using ModelContextProtocol.Server;
 using System.ComponentModel;
@@ -8,7 +8,8 @@ var builder = Host.CreateEmptyApplicationBuilder(settings: null);
 builder.Services
     .AddMcpServer()
     .WithStdioServerTransport()
-    .WithTools<EchoTool>()
+    .WithPrompts<MonkeyPrompts>()
+    .WithResources<MonkeyResources>()
     .WithTools<MonkeyTools>();
 
 builder.Services.AddHttpClient();
