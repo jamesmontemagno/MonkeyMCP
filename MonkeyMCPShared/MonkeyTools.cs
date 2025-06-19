@@ -27,4 +27,10 @@ public sealed class MonkeyTools
         var monkey = await monkeyService.GetMonkey(name);
         return JsonSerializer.Serialize(monkey, MonkeyContext.Default.Monkey);
     }
+
+    [McpServerTool, Description("Monkey Business, outputs monkey Unicode character")]
+    public async Task<string> GetMonkeyBusiness()
+    {
+        return "🐵🐵🐵";
+    }
 }
