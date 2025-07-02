@@ -39,7 +39,7 @@ public class MonkeyLocationService
         
         var currentLat = startLocation.Latitude;
         var currentLon = startLocation.Longitude;
-        var numPoints = random.Next(10, 25);
+        var numPoints = random.Next(10, 20);
 
         for (int i = 1; i <= numPoints; i++)
         {
@@ -73,7 +73,7 @@ public class MonkeyLocationService
     private List<MonkeyActivity> GenerateActivities(List<PathPoint> pathPoints, MonkeyTypeConfig config)
     {
         var activities = new List<MonkeyActivity>();
-        var activityChance = 0.4; // 40% chance at each point
+        var activityChance = 0.3; // 30% chance at each point
 
         for (int i = 1; i < pathPoints.Count; i++)
         {
@@ -110,18 +110,16 @@ public class MonkeyLocationService
 
     private ActivityTemplate SelectRandomActivity(MonkeyTypeConfig config)
     {
-        var weightedActivities = new List<ActivityTemplate>();
-        
-        // Add common activities
-        weightedActivities.AddRange(GetCommonActivities());
-        
-        // Add species-specific activities with higher weight
-        for (int i = 0; i < 3; i++)
+        // 40% chance to select from preferred activities, 60% from common activities
+        if (random.NextDouble() < 0.4 && config.PreferredActivities.Count > 0)
         {
-            weightedActivities.AddRange(config.PreferredActivities);
+            return config.PreferredActivities[random.Next(config.PreferredActivities.Count)];
         }
-
-        return weightedActivities[random.Next(weightedActivities.Count)];
+        else
+        {
+            var commonActivities = GetCommonActivities();
+            return commonActivities[random.Next(commonActivities.Count)];
+        }
     }
 
     private List<ActivityTemplate> GetCommonActivities()
@@ -132,7 +130,17 @@ public class MonkeyLocationService
             new() { Type = "Resting", Description = "Took a well-deserved nap under a tree", MinDuration = 15, MaxDuration = 45, EnergyChange = 15 },
             new() { Type = "Exploring", Description = "Investigated an interesting rock formation", MinDuration = 5, MaxDuration = 15, EnergyChange = -5 },
             new() { Type = "Drinking", Description = "Found a water source and had a refreshing drink", MinDuration = 2, MaxDuration = 8, EnergyChange = 5 },
-            new() { Type = "Climbing", Description = "Climbed a tall tree to get a better view", MinDuration = 5, MaxDuration = 15, EnergyChange = -10 }
+            new() { Type = "Climbing", Description = "Climbed a tall tree to get a better view", MinDuration = 5, MaxDuration = 15, EnergyChange = -10 },
+            new() { Type = "Sunbathing", Description = "Relaxed in a warm sunny spot", MinDuration = 10, MaxDuration = 30, EnergyChange = 8 },
+            new() { Type = "Playing", Description = "Engaged in playful antics with nearby objects", MinDuration = 5, MaxDuration = 20, EnergyChange = -3 },
+            new() { Type = "Grooming", Description = "Spent time cleaning and grooming themselves", MinDuration = 8, MaxDuration = 25, EnergyChange = 3 },
+            new() { Type = "Watching", Description = "Sat quietly observing the surrounding environment", MinDuration = 3, MaxDuration = 15, EnergyChange = 2 },
+            new() { Type = "Stretching", Description = "Did some stretching exercises after sitting for a while", MinDuration = 2, MaxDuration = 8, EnergyChange = 5 },
+            new() { Type = "Snacking", Description = "Found and munched on some seeds or small insects", MinDuration = 3, MaxDuration = 12, EnergyChange = 7 },
+            new() { Type = "Shelter Seeking", Description = "Found a cozy spot for protection from the elements", MinDuration = 5, MaxDuration = 20, EnergyChange = 4 },
+            new() { Type = "Scent Investigation", Description = "Investigated interesting scents in the area", MinDuration = 2, MaxDuration = 10, EnergyChange = -2 },
+            new() { Type = "Branch Swinging", Description = "Swung energetically from branch to branch", MinDuration = 3, MaxDuration = 12, EnergyChange = -8 },
+            new() { Type = "Ground Exploration", Description = "Searched the ground for interesting items or food", MinDuration = 8, MaxDuration = 25, EnergyChange = -5 }
         };
     }
 
@@ -172,6 +180,70 @@ public class MonkeyLocationService
                 }
             },
             {
+                "Capuchin",
+                new MonkeyTypeConfig
+                {
+                    MaxMovementRadius = 1.8,
+                    PreferredTerrain = "Rainforest",
+                    BaseEnergy = 85,
+                    BaseSocial = 80,
+                    PreferredActivities = new List<ActivityTemplate>
+                    {
+                        new() { Type = "Tool Use", Description = "Used a stick to extract insects from tree bark", MinDuration = 8, MaxDuration = 20, EnergyChange = 10 },
+                        new() { Type = "Fruit Foraging", Description = "Found and cracked open some nutritious nuts", MinDuration = 10, MaxDuration = 25, EnergyChange = 15 },
+                        new() { Type = "Social Learning", Description = "Watched and learned new techniques from other capuchins", MinDuration = 5, MaxDuration = 15, EnergyChange = 0 }
+                    }
+                }
+            },
+            {
+                "Blue",
+                new MonkeyTypeConfig
+                {
+                    MaxMovementRadius = 1.6,
+                    PreferredTerrain = "Forest",
+                    BaseEnergy = 75,
+                    BaseSocial = 85,
+                    PreferredActivities = new List<ActivityTemplate>
+                    {
+                        new() { Type = "Canopy Foraging", Description = "Searched for fruits high in the forest canopy", MinDuration = 12, MaxDuration = 30, EnergyChange = 12 },
+                        new() { Type = "Territory Patrol", Description = "Patrolled the group's territory boundaries", MinDuration = 20, MaxDuration = 40, EnergyChange = -8 },
+                        new() { Type = "Group Bonding", Description = "Engaged in social bonding with troop members", MinDuration = 10, MaxDuration = 25, EnergyChange = 5 }
+                    }
+                }
+            },
+            {
+                "Squirrel",
+                new MonkeyTypeConfig
+                {
+                    MaxMovementRadius = 1.4,
+                    PreferredTerrain = "Rainforest",
+                    BaseEnergy = 90,
+                    BaseSocial = 95,
+                    PreferredActivities = new List<ActivityTemplate>
+                    {
+                        new() { Type = "Acrobatic Leaping", Description = "Performed impressive leaps between branches", MinDuration = 2, MaxDuration = 8, EnergyChange = -5 },
+                        new() { Type = "Insect Hunting", Description = "Caught and ate some protein-rich insects", MinDuration = 5, MaxDuration = 15, EnergyChange = 8 },
+                        new() { Type = "Playful Wrestling", Description = "Engaged in playful wrestling with other squirrel monkeys", MinDuration = 8, MaxDuration = 20, EnergyChange = 0 }
+                    }
+                }
+            },
+            {
+                "Golden Lion Tamarin",
+                new MonkeyTypeConfig
+                {
+                    MaxMovementRadius = 1.3,
+                    PreferredTerrain = "Atlantic Forest",
+                    BaseEnergy = 80,
+                    BaseSocial = 90,
+                    PreferredActivities = new List<ActivityTemplate>
+                    {
+                        new() { Type = "Mane Grooming", Description = "Carefully groomed their magnificent golden mane", MinDuration = 10, MaxDuration = 25, EnergyChange = 5 },
+                        new() { Type = "Tree Hole Foraging", Description = "Searched tree holes for hidden insects and small animals", MinDuration = 8, MaxDuration = 20, EnergyChange = 12 },
+                        new() { Type = "Family Bonding", Description = "Spent quality time with family members", MinDuration = 15, MaxDuration = 35, EnergyChange = 8 }
+                    }
+                }
+            },
+            {
                 "Howler",
                 new MonkeyTypeConfig
                 {
@@ -204,6 +276,22 @@ public class MonkeyLocationService
                 }
             },
             {
+                "Mandrill",
+                new MonkeyTypeConfig
+                {
+                    MaxMovementRadius = 2.2,
+                    PreferredTerrain = "Rainforest",
+                    BaseEnergy = 85,
+                    BaseSocial = 95,
+                    PreferredActivities = new List<ActivityTemplate>
+                    {
+                        new() { Type = "Colorful Display", Description = "Showed off their vibrant facial colors to assert dominance", MinDuration = 3, MaxDuration = 10, EnergyChange = -3 },
+                        new() { Type = "Ground Foraging", Description = "Searched the forest floor for fruits and roots", MinDuration = 15, MaxDuration = 30, EnergyChange = 15 },
+                        new() { Type = "Troop Leadership", Description = "Led the troop to new foraging areas", MinDuration = 20, MaxDuration = 45, EnergyChange = -10 }
+                    }
+                }
+            },
+            {
                 "Proboscis",
                 new MonkeyTypeConfig
                 {
@@ -220,18 +308,66 @@ public class MonkeyLocationService
                 }
             },
             {
-                "Golden Snub-Nosed",
+                "Red-shanked douc",
                 new MonkeyTypeConfig
                 {
-                    MaxMovementRadius = 2.5,
-                    PreferredTerrain = "Mountain",
-                    BaseEnergy = 80,
-                    BaseSocial = 80,
+                    MaxMovementRadius = 1.7,
+                    PreferredTerrain = "Forest",
+                    BaseEnergy = 78,
+                    BaseSocial = 82,
                     PreferredActivities = new List<ActivityTemplate>
                     {
-                        new() { Type = "High Altitude Foraging", Description = "Searched for lichens and bark in the treetops", MinDuration = 15, MaxDuration = 30, EnergyChange = 10 },
-                        new() { Type = "Huddling", Description = "Huddled with family for warmth in the cold mountain air", MinDuration = 20, MaxDuration = 40, EnergyChange = 8 },
-                        new() { Type = "Acrobatic Display", Description = "Performed impressive acrobatic moves between branches", MinDuration = 5, MaxDuration = 15, EnergyChange = -10 }
+                        new() { Type = "Colorful Posing", Description = "Displayed their beautiful colorful fur in the sunlight", MinDuration = 5, MaxDuration = 15, EnergyChange = 0 },
+                        new() { Type = "Leaf Selection", Description = "Carefully selected the most nutritious young leaves", MinDuration = 10, MaxDuration = 25, EnergyChange = 10 },
+                        new() { Type = "Arboreal Movement", Description = "Gracefully moved through the forest canopy", MinDuration = 8, MaxDuration = 20, EnergyChange = -5 }
+                    }
+                }
+            },
+            {
+                "Sebastian",
+                new MonkeyTypeConfig
+                {
+                    MaxMovementRadius = 0.5,
+                    PreferredTerrain = "Urban",
+                    BaseEnergy = 95,
+                    BaseSocial = 100,
+                    PreferredActivities = new List<ActivityTemplate>
+                    {
+                        new() { Type = "Tech Shopping", Description = "Browsed the latest Android devices at the local electronics store", MinDuration = 30, MaxDuration = 60, EnergyChange = 10 },
+                        new() { Type = "Coffee Break", Description = "Enjoyed a latte at a trendy Seattle coffee shop", MinDuration = 15, MaxDuration = 30, EnergyChange = 15 },
+                        new() { Type = "Social Media", Description = "Posted updates and photos on @MotzMonkeys", MinDuration = 10, MaxDuration = 20, EnergyChange = 5 }
+                    }
+                }
+            },
+            {
+                "Henry",
+                new MonkeyTypeConfig
+                {
+                    MaxMovementRadius = 0.8,
+                    PreferredTerrain = "Desert Urban",
+                    BaseEnergy = 88,
+                    BaseSocial = 92,
+                    PreferredActivities = new List<ActivityTemplate>
+                    {
+                        new() { Type = "iOS Testing", Description = "Tested the latest iPhone features and apps", MinDuration = 25, MaxDuration = 45, EnergyChange = 8 },
+                        new() { Type = "Desert Exploration", Description = "Explored the beautiful Arizona desert landscapes", MinDuration = 40, MaxDuration = 80, EnergyChange = -10 },
+                        new() { Type = "Travel Planning", Description = "Planned the next adventure with Heather", MinDuration = 20, MaxDuration = 40, EnergyChange = 5 }
+                    }
+                }
+            },
+            {
+                "Mooch",
+                new MonkeyTypeConfig
+                {
+                    MaxMovementRadius = 0.6,
+                    PreferredTerrain = "Urban",
+                    BaseEnergy = 90,
+                    BaseSocial = 98,
+                    PreferredActivities = new List<ActivityTemplate>
+                    {
+                        new() { Type = "iPhone Photography", Description = "Captured stunning photos with the latest iPhone camera", MinDuration = 15, MaxDuration = 35, EnergyChange = 5 },
+                        new() { Type = "Waterfront Stroll", Description = "Enjoyed a peaceful walk along the Seattle waterfront", MinDuration = 30, MaxDuration = 60, EnergyChange = 10 },
+                        new() { Type = "Adventure Blogging", Description = "Documented travel adventures for @MotzMonkeys followers", MinDuration = 20, MaxDuration = 40, EnergyChange = 0 }
                     }
                 }
             },

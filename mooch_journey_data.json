@@ -1,0 +1,183 @@
+{
+  "MonkeyName": "Mooch",
+  "StartLocation": {
+    "Latitude": 47.608013,
+    "Longitude": -122.335167
+  },
+  "StartTime": "2025-07-02T09:52:08.1076278Z",
+  "EndTime": "2025-07-02T11:28:08.1076278Z",
+  "PathPoints": [
+    {
+      "Location": {
+        "Latitude": 47.608013,
+        "Longitude": -122.335167
+      },
+      "Timestamp": "2025-07-02T13:52:08.1079669Z"
+    },
+    {
+      "Location": {
+        "Latitude": 47.60781033913533,
+        "Longitude": -122.33536266643291
+      },
+      "Timestamp": "2025-07-02T14:04:08.1079669Z"
+    },
+    {
+      "Location": {
+        "Latitude": 47.60780426549518,
+        "Longitude": -122.33536289738302
+      },
+      "Timestamp": "2025-07-02T14:16:08.1079669Z"
+    },
+    {
+      "Location": {
+        "Latitude": 47.60779677992401,
+        "Longitude": -122.3358123554838
+      },
+      "Timestamp": "2025-07-02T15:10:08.1079669Z"
+    },
+    {
+      "Location": {
+        "Latitude": 47.607970038580454,
+        "Longitude": -122.3359569380382
+      },
+      "Timestamp": "2025-07-02T14:32:08.1079669Z"
+    },
+    {
+      "Location": {
+        "Latitude": 47.607635192954305,
+        "Longitude": -122.33564808483166
+      },
+      "Timestamp": "2025-07-02T15:22:08.1079669Z"
+    },
+    {
+      "Location": {
+        "Latitude": 47.60803667828576,
+        "Longitude": -122.33568673176046
+      },
+      "Timestamp": "2025-07-02T15:58:08.1079669Z"
+    },
+    {
+      "Location": {
+        "Latitude": 47.608151409972194,
+        "Longitude": -122.33502888771966
+      },
+      "Timestamp": "2025-07-02T16:08:08.1079669Z"
+    },
+    {
+      "Location": {
+        "Latitude": 47.608687729483066,
+        "Longitude": -122.33518300575531
+      },
+      "Timestamp": "2025-07-02T15:49:08.1079669Z"
+    },
+    {
+      "Location": {
+        "Latitude": 47.608764117524096,
+        "Longitude": -122.33519961800057
+      },
+      "Timestamp": "2025-07-02T17:22:08.1079669Z"
+    },
+    {
+      "Location": {
+        "Latitude": 47.60889270257975,
+        "Longitude": -122.33532521671354
+      },
+      "Timestamp": "2025-07-02T17:43:08.1079669Z"
+    },
+    {
+      "Location": {
+        "Latitude": 47.60912527262461,
+        "Longitude": -122.33519347029672
+      },
+      "Timestamp": "2025-07-02T16:04:08.1079669Z"
+    },
+    {
+      "Location": {
+        "Latitude": 47.60887157578555,
+        "Longitude": -122.33478300194683
+      },
+      "Timestamp": "2025-07-02T18:25:08.1079669Z"
+    },
+    {
+      "Location": {
+        "Latitude": 47.6093015654782,
+        "Longitude": -122.33479684552117
+      },
+      "Timestamp": "2025-07-02T17:50:08.1079669Z"
+    },
+    {
+      "Location": {
+        "Latitude": 47.60902865541471,
+        "Longitude": -122.33487381161049
+      },
+      "Timestamp": "2025-07-02T19:52:08.1079669Z"
+    }
+  ],
+  "Activities": [
+    {
+      "Type": "iPhone Photography",
+      "Description": "Captured stunning photos with the latest iPhone camera",
+      "Location": {
+        "Latitude": 47.60803667828576,
+        "Longitude": -122.33568673176046
+      },
+      "Timestamp": "2025-07-02T15:58:08.1079669Z",
+      "Duration": "00:26:00",
+      "EnergyChange": 4
+    },
+    {
+      "Type": "Waterfront Stroll",
+      "Description": "Enjoyed a peaceful walk along the Seattle waterfront",
+      "Location": {
+        "Latitude": 47.608151409972194,
+        "Longitude": -122.33502888771966
+      },
+      "Timestamp": "2025-07-02T16:08:08.1079669Z",
+      "Duration": "00:36:00",
+      "EnergyChange": 12
+    },
+    {
+      "Type": "Climbing",
+      "Description": "Climbed a tall tree to get a better view",
+      "Location": {
+        "Latitude": 47.608687729483066,
+        "Longitude": -122.33518300575531
+      },
+      "Timestamp": "2025-07-02T15:49:08.1079669Z",
+      "Duration": "00:07:00",
+      "EnergyChange": -15
+    },
+    {
+      "Type": "Climbing",
+      "Description": "Climbed a tall tree to get a better view",
+      "Location": {
+        "Latitude": 47.608764117524096,
+        "Longitude": -122.33519961800057
+      },
+      "Timestamp": "2025-07-02T17:22:08.1079669Z",
+      "Duration": "00:08:00",
+      "EnergyChange": -10
+    },
+    {
+      "Type": "Watching",
+      "Description": "Sat quietly observing the surrounding environment",
+      "Location": {
+        "Latitude": 47.60912527262461,
+        "Longitude": -122.33519347029672
+      },
+      "Timestamp": "2025-07-02T16:04:08.1079669Z",
+      "Duration": "00:09:00",
+      "EnergyChange": 5
+    }
+  ],
+  "HealthStats": {
+    "Energy": 97,
+    "Happiness": 67,
+    "Hunger": 50,
+    "Social": 98,
+    "Stress": 22,
+    "Health": 90
+  },
+  "TotalDuration": "01:36:00",
+  "TotalDistanceKm": 0.46134027461029714
+}
