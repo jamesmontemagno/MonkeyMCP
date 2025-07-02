@@ -39,7 +39,7 @@ public class MonkeyLocationService
         
         var currentLat = startLocation.Latitude;
         var currentLon = startLocation.Longitude;
-        var numPoints = random.Next(5, 15);
+        var numPoints = random.Next(10, 25);
 
         for (int i = 1; i <= numPoints; i++)
         {
