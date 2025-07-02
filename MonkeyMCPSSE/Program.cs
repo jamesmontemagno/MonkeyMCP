@@ -10,6 +10,7 @@ builder.Services
 
 builder.Services.AddHttpClient();
 builder.Services.AddSingleton<MonkeyService>();
+builder.Services.AddSingleton<MonkeyLocationService>();
 
 var app = builder.Build();
 

@@ -37,15 +37,20 @@ Configure in VS Code with GitHub Copilot, Claude Desktop, or other MCP clients:
   - Provides methods to retrieve a list of all monkeys or find a specific monkey by name
   - Caches results for better performance
 
+- **MonkeyLocationService**: A service that generates unique journeys and activities for monkeys
+  - Creates randomized path points based on monkey species behavior
+  - Generates species-specific activities (grooming, howling, hot spring bathing, etc.)
+  - Provides health statistics and movement patterns
+  - Each journey includes fun activities like eating bananas, cleaning other monkeys, and exploration
+
 ### Available Tools
 The server exposes several tools that can be invoked by clients:
 
 #### Monkey Tools
 - **GetMonkeys**: Returns a JSON serialized list of all available monkeys
 - **GetMonkey**: Retrieves information about a specific monkey by name
-
-#### Echo Tool
-- **Echo**: A simple tool that echoes back the provided message with a "hello" prefix
+- **GetMonkeyJourney**: Creates a unique journey path with activities and health stats for a specific monkey
+- **GetAllMonkeyJourneys**: Generates journey paths for all available monkeys
 
 ## Configuration Options
 
@@ -138,3 +143,31 @@ The SSE implementation uses ASP.NET Core's built-in web server capabilities whil
 
 ## License
 This project is available under the MIT License.
+
+## MonkeyLocationService Features
+
+The `MonkeyLocationService` provides rich simulation capabilities:
+
+### Monkey Type Configurations
+- **Baboons**: Savanna dwellers with social grooming behaviors and root foraging
+- **Howler Monkeys**: Forest inhabitants known for territorial howling and leaf eating
+- **Japanese Macaques**: Mountain monkeys that enjoy hot springs and snow play
+- **Proboscis Monkeys**: Mangrove specialists that swim and show off their distinctive noses
+- **Golden Snub-Nosed Monkeys**: High-altitude acrobats that huddle for warmth
+
+### Journey Components
+- **Path Points**: GPS coordinates showing where the monkey traveled
+- **Activities**: Species-specific behaviors with energy costs/benefits
+- **Health Stats**: Energy, happiness, hunger, social, stress, and health metrics
+- **Time Tracking**: Start/end times and activity durations
+- **Distance Calculation**: Total journey distance using Haversine formula
+
+### Unique Activities Include
+- Banana finding and eating
+- Mutual grooming sessions
+- Territory marking
+- Hot spring bathing (macaques)
+- Swimming (proboscis monkeys)
+- Acrobatic displays
+- Social interactions
+- Foraging and exploration
