@@ -18,4 +18,10 @@ public class MonkeyPrompts
     {
         return $"Please provide details for the monkey named {name}.";
     }
+
+    [McpServerPrompt, Description("Get a monkey story based on their journey.")]
+    public static string GetMonkeyStory([Description("The name of the monkey to get a story for")] string name, [Description("The type of story (e.g., action, adventure, mystery, comedy, etc.)")] string storyType)
+    {
+        return $"Let's get the journey for the {name}, summarize the journey quickly and then write a short {storyType} story baesd on the monkeys journey that is fun for the family and kids.";
+    }
 }
