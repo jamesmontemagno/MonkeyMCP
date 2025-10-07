@@ -1,0 +1,16 @@
+{
+    "version": "2.0",
+    "extensions": {
+        "http": {
+            "routePrefix": ""
+        }
+    },
+    "customHandler": {
+        "description": {
+            "defaultExecutablePath": "dotnet",
+            "workingDirectory": "",
+            "arguments": ["MonkeyMCPSSERemote.dll"]
+        },
+        "enableProxyingHttpRequest": true
+    }
+}

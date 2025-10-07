@@ -1,0 +1,14 @@
+*.cs
+*.csproj
+obj/
+bin/Debug/
+bin/Release/
+Properties/
+appsettings*.json
+README.md
+.git*
+.vscode/
+*.user
+*.suo
+*.cache
+*.log

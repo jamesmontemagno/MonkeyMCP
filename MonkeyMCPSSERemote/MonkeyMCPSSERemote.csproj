@@ -4,7 +4,8 @@
     <TargetFramework>net9.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <PublishAot>true</PublishAot>
+    <AssemblyName>MonkeyMCPSSERemote</AssemblyName>
+    <UserSecretsId>9109670f-c0ba-47cd-840c-9d9d075264fd</UserSecretsId>
   </PropertyGroup>
 
     <ItemGroup>
@@ -14,6 +15,10 @@
 
     <ItemGroup>
       <ProjectReference Include="../MonkeyMCPShared/MonkeyMCPShared.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Content Include=".azurefunctions/**" CopyToOutputDirectory="Always" />
     </ItemGroup>
 
 </Project>
