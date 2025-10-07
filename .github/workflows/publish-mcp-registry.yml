@@ -14,7 +14,7 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Setup .NET
         uses: actions/setup-dotnet@v4
@@ -33,14 +33,31 @@ jobs:
 
       - name: Update server.json version
         run: |
-          jq --arg v "${{ steps.version.outputs.VERSION }}" '.version = $v | .packages[0].version = $v' server.json > tmp.json && mv tmp.json server.json
+          VERSION="${{ steps.version.outputs.VERSION }}"
+          echo "Updating server.json to version $VERSION"
+          jq --arg v "$VERSION" '.version = $v | .packages[0].version = $v' server.json > tmp.json && mv tmp.json server.json
+          cat server.json
 
-      - name: Build and publish Docker container
+      - name: Build and publish Docker container with version tag
         run: dotnet publish MonkeyMCP/MonkeyMCP.csproj /t:PublishContainer -p ContainerRegistry=docker.io -p ContainerImageTag=${{ steps.version.outputs.VERSION }}
+
+      - name: Build and publish Docker container with latest tag
+        run: dotnet publish MonkeyMCP/MonkeyMCP.csproj /t:PublishContainer -p ContainerRegistry=docker.io -p ContainerImageTag=latest
 
       - name: Install MCP Publisher
         run: |
-          curl -L "https://github.com/modelcontextprotocol/registry/releases/download/v1.2.3/mcp-publisher_$(uname -s | tr '[:upper:]' '[:lower:]')_$(uname -m | sed 's/x86_64/amd64/;s/aarch64/arm64/').tar.gz" | tar xz mcp-publisher
+          # Download MCP Publisher using the actual release filename format
+          # The docs show /latest/ but that doesn't work, so we use a specific version
+          OS=$(uname -s | tr '[:upper:]' '[:lower:]')
+          ARCH=$(uname -m | sed 's/x86_64/amd64/;s/aarch64/arm64/')
+          
+          echo "Downloading mcp-publisher for ${OS}_${ARCH}"
+          curl -L -f -o mcp-publisher.tar.gz \
+            "https://github.com/modelcontextprotocol/registry/releases/download/v1.2.3/mcp-publisher_1.2.3_${OS}_${ARCH}.tar.gz"
+          
+          tar xzf mcp-publisher.tar.gz
+          chmod +x mcp-publisher
+          ./mcp-publisher --help
 
       - name: Login to MCP Registry
         run: ./mcp-publisher login github-oidc
