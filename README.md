@@ -5,6 +5,14 @@ This is a Model Context Protocol (MCP) server implementation built with .NET 9.0
 
 ## Try it
 
+### Quick Install for VS Code & VS
+
+[![Install Remote Server in VS Code](https://img.shields.io/badge/VS_Code-Install_Remote_Server-0098FF?style=flat-square&logo=visualstudiocode&logoColor=white)](https://insiders.vscode.dev/redirect/mcp/install?name=monkeymcp&config=%7B%22type%22%3A%20%22http%22%2C%22url%22%3A%20%22https%3A%2F%2Ffunc-monkeymcp-3t4eixuap5dfm.azurewebsites.net%2F%22%7D) [![Install Remote Server in VS Code Insiders](https://img.shields.io/badge/VS_Code_Insiders-Install_Remote_Server-24bfa5?style=flat-square&logo=visualstudiocode&logoColor=white)](https://insiders.vscode.dev/redirect/mcp/install?name=monkeymcp&config=%7B%22type%22%3A%20%22http%22%2C%22url%22%3A%20%22https%3A%2F%2Ffunc-monkeymcp-3t4eixuap5dfm.azurewebsites.net%2F%22%7D&quality=insiders)
+
+[![Install Docker Container in VS Code](https://img.shields.io/badge/VS_Code-Install_Docker_Server-0098FF?style=flat-square&logo=visualstudiocode&logoColor=white)](https://insiders.vscode.dev/redirect/mcp/install?name=monkeymcp&config=%7B%22command%22%3A%22docker%22%2C%22args%22%3A%5B%22run%22%2C%22-i%22%2C%22--rm%22%2C%22jamesmontemagno%2Fmonkeymcp%22%5D%2C%22env%22%3A%7B%7D%7D) [![Install Docker Container in VS Code Insiders](https://img.shields.io/badge/VS_Code_Insiders-Install_Docker_Server-24bfa5?style=flat-square&logo=visualstudiocode&logoColor=white)](https://insiders.vscode.dev/redirect/mcp/install?name=monkeymcp&config=%7B%22command%22%3A%22docker%22%2C%22args%22%3A%5B%22run%22%2C%22-i%22%2C%22--rm%22%2C%22jamesmontemagno%2Fmonkeymcp%22%5D%2C%22env%22%3A%7B%7D%7D&quality=insiders)
+
+[![Install Remote Server in Visual Studio](https://img.shields.io/badge/Visual_Studio-Install_Remote_Server-C16FDE?logo=visualstudio&logoColor=white)](https://vs-open.link/mcp-install?%7B%22name%22%3A%22monkeymcp%22%2C%22type%22%3A%22http%22%2C%22url%22%3A%22https%3A%2F%2Ffunc-monkeymcp-3t4eixuap5dfm.azurewebsites.net%2F%22%7D) [![Install Docker Container in Visual Studio](https://img.shields.io/badge/Visual_Studio-Install_Docker_Server-C16FDE?logo=visualstudio&logoColor=white)](https://vs-open.link/mcp-install?%7B%22name%22%3A%22monkeymcp%22%2C%22command%22%3A%22docker%22%2C%22args%22%3A%5B%22run%22%2C%22-i%22%2C%22--rm%22%2C%22jamesmontemagno%2Fmonkeymcp%22%5D%2C%22env%22%3A%7B%7D%7D)
+
 Configure in VS Code with GitHub Copilot, Claude Desktop, or other MCP clients:
 
 ### Option 1: Remote Azure Functions Server (Recommended)
