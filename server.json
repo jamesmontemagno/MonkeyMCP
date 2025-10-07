@@ -1,0 +1,28 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-09-29/server.schema.json",
+  "name": "io.github.jamesmontemagno/monkeymcp",
+  "title": "Monkey MCP Server",
+  "description": "MCP server providing monkey data, journeys, and location services for various monkey species.",
+  "repository": {
+    "url": "https://github.com/jamesmontemagno/monkeymcp",
+    "source": "github"
+  },
+  "version": "1.0.0",
+  "packages": [
+    {
+      "registryType": "oci",
+      "registryBaseUrl": "https://docker.io",
+      "identifier": "jamesmontemagno/monkeymcp",
+      "version": "1.0.0",
+      "transport": {
+        "type": "stdio"
+      }
+    }
+  ],
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://func-monkeymcp-3t4eixuap5dfm.azurewebsites.net/"
+    }
+  ]
+}

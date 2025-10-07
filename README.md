@@ -7,6 +7,20 @@ This is a Model Context Protocol (MCP) server implementation built with .NET 9.0
 
 Configure in VS Code with GitHub Copilot, Claude Desktop, or other MCP clients:
 
+### Option 1: Remote Azure Functions Server (Recommended)
+```json
+{
+    "servers": {
+        "monkeymcp": {
+            "url": "https://func-monkeymcp-3t4eixuap5dfm.azurewebsites.net/",
+            "type": "http"
+        }
+    },
+    "inputs": []
+}
+```
+
+### Option 2: Docker Container
 ```json
 {
     "inputs": [],
@@ -143,6 +157,8 @@ The SSE implementation uses ASP.NET Core's built-in web server capabilities whil
 
 ## License
 This project is available under the MIT License.
+
+<!-- mcp-name: io.github.jamesmontemagno/monkeymcp -->
 
 ## MonkeyLocationService Features
 

@@ -1,0 +1,10 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/Azure/azure-dev/main/schemas/v1.0/azure.yaml.json
+
+name: monkeymcp-server-azd
+metadata:
+  template: monkeymcp-server-azd@1.0.1
+services:
+  mcp:
+    project: .
+    language: csharp
+    host: function
