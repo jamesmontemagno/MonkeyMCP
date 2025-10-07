@@ -18,11 +18,5 @@
         "type": "stdio"
       }
     }
-  ],
-  "remotes": [
-    {
-      "type": "streamable-http",
-      "url": "https://func-monkeymcp-3t4eixuap5dfm.azurewebsites.net/"
-    }
   ]
 }
