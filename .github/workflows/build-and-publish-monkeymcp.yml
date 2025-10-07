@@ -1,44 +1,34 @@
-name: Build and Publish MonkeyMCP Container
+name: Build MonkeyMCP Projects
 
 on:
   push:
-    branches: [ main ]
+    branches: [ main, remove-mcp ]
   pull_request:
     branches: [ main ]
 
 jobs:
   build:
     runs-on: ubuntu-latest
-    if: github.event_name == 'pull_request'
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Setup .NET
-        uses: actions/setup-dotnet@v3
+        uses: actions/setup-dotnet@v4
         with:
           dotnet-version: '9.0.x'
 
-      - name: Build MonkeyMCP
-        run: dotnet build MonkeyMCP/MonkeyMCP.csproj
+      - name: Restore dependencies
+        run: dotnet restore
 
-  build-and-publish:
-    runs-on: ubuntu-latest
-    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
+      - name: Build MonkeyMCP (Console/Docker)
+        run: dotnet build MonkeyMCP/MonkeyMCP.csproj --no-restore
 
-      - name: Setup .NET
-        uses: actions/setup-dotnet@v3
-        with:
-          dotnet-version: '9.0.x'
+      - name: Build MonkeyMCPSSE (Local HTTP)
+        run: dotnet build MonkeyMCPSSE/MonkeyMCPSSE.csproj --no-restore
 
-      - name: Log in to Docker Hub
-        uses: docker/login-action@v2
-        with:
-          username: ${{ secrets.DOCKERHUB_USERNAME }}
-          password: ${{ secrets.DOCKERHUB_TOKEN }}
+      - name: Build MonkeyMCPSSERemote (Azure Functions)
+        run: dotnet build MonkeyMCPSSERemote/MonkeyMCPSSERemote.csproj --no-restore
 
-      - name: Publish MonkeyMCP as Container
-        run: dotnet publish MonkeyMCP/MonkeyMCP.csproj /t:PublishContainer -p ContainerRegistry=docker.io
+      - name: Test projects (if tests exist)
+        run: dotnet test --no-build --verbosity normal
