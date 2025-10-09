@@ -68,7 +68,13 @@ Please create install badges following this pattern and add them to my README.md
 
 ## Badge URL Patterns
 
-### VS Code & VS Code Insiders
+### VS Code & 
+
+```
+https://vscode.dev/redirect/mcp/install?name=[NAME]&config=[URL_ENCODED_CONFIG]
+```
+
+## VS Code Insiders
 ```
 https://insiders.vscode.dev/redirect/mcp/install?name=[NAME]&config=[URL_ENCODED_CONFIG]
 ```
