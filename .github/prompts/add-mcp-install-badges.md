@@ -40,35 +40,55 @@ Please create install badges following this pattern and add them to my README.md
 ### Remote HTTP Server
 ```json
 {
-  "name": "your-server-name",
-  "type": "http",
-  "url": "https://your-server-url.com/"
+  "servers": {
+    "your-server-name": {
+      "url": "https://your-server-url.com/",
+      "type": "http"
+    }
+  }
 }
 ```
 
 ### Docker Container
 ```json
 {
-  "name": "your-server-name", 
-  "command": "docker",
-  "args": ["run", "-i", "--rm", "your-username/your-image"],
-  "env": {}
+  "servers": {
+    "your-server-name": {
+      "command": "docker",
+      "args": ["run", "-i", "--rm", "your-username/your-image"],
+      "env": {}
+    }
+  }
 }
 ```
 
 ### Local Binary
 ```json
 {
-  "name": "your-server-name",
-  "command": "node", 
-  "args": ["path/to/your/server.js"],
-  "env": {}
+  "servers": {
+    "your-server-name": {
+      "command": "node", 
+      "args": ["path/to/your/server.js"],
+      "env": {}
+    }
+  }
 }
+```
+
+## CLI styling
+
+```bash
+code --add-mcp '{\"name\":\"css\",\"command\":\"npx\",\"args\":[\"-y\",\"css-mcp\"],\"env\":{}}'
+``
+
+and
+```bash
+code-insiders --add-mcp '{\"name\":\"css\",\"command\":\"npx\",\"args\":[\"-y\",\"css-mcp\"],\"env\":{}}'
 ```
 
 ## Badge URL Patterns
 
-### VS Code & 
+### VS Code 
 
 ```
 https://vscode.dev/redirect/mcp/install?name=[NAME]&config=[URL_ENCODED_CONFIG]
