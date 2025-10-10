@@ -23,7 +23,6 @@ obj/
 
 # Visual Studio 2019/2022
 .vs/
-.vscode/
 
 # Rider
 .idea/
@@ -81,3 +80,9 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 mcp-publisher.exe
+__azurite_db_blob__.json
+__azurite_db_blob_extent__.json
+__azurite_db_queue__.json
+__azurite_db_queue_extent__.json
+__azurite_db_table__.json
+__blobstorage__/647b328d-a771-45e3-8c69-d504331f2d99
